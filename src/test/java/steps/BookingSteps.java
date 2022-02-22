@@ -1,7 +1,10 @@
 package steps;
 
+import excell_core.ExcelUtilities;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.testng.Reporter;
 import tests.BaseTest;
 
@@ -28,5 +31,19 @@ public class BookingSteps extends BaseTest {
         reportScreenshot("end", "screenshot on end or fail");
         quit();
     }
+    @Given("I load test data from {string} {string} {string}")
+    public void iLoadTestDataFrom(String fileName, String sheetName, String rowNum) throws IOException {
+        ExcelUtilities excelUtilities = new ExcelUtilities();
+        data = excelUtilities.getRowData(testDataPath + fileName + ".xlsx", sheetName, rowNum);
+        System.out.println(data.get("Location"));
+    }
 
+    @Given("I navigate to Booking")
+    public void iNavigateToBooking() throws Exception {
+        startApplication(ENV);
+    }
+
+    @Then("I navigate to flights page")
+    public void iNavigateToFlightsPage() {
+    }
 }

@@ -10,17 +10,18 @@ import java.util.Map;
 
 public class FlightsPage extends BasePage {
     WebDriver driver;
+
     public FlightsPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-        @FindBy(xpath = "//span[text()='Flights']")
-        WebElement flights;
+    @FindBy(xpath = "//a[@data-decider-header='flights']")
+    WebElement flights;
 
-    public void OpenFlightPage() throws InterruptedException {
+    public void openFlightsPage() throws InterruptedException {
         clickElement(flights);
 
-}
+    }
 }

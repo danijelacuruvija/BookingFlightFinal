@@ -1,16 +1,14 @@
 Feature: Booking
 
 #  Scenario Outline: Book a Flight row: "<row>"
-    Scenario Outline: Book a flight
-        Given I navigate to Booking
-        Then I navigate to flights page
-        And I select flight class <arg0>
-        Examples:
-            | arg0       |
-            | "BUSINESS" |
-#    And I select number of adults
-#    And I add destinartion
-#    Then I add departue and yreturn date
+  Scenario: Book a flight
+    Given I navigate to Booking
+    Then I navigate to flights page
+   #Then I choose flight type "1"
+    And I select flight class "PREMIUM_ECONOMY"
+    And I select number of passengers
+#    And I add destination
+#    Then I add departue and return date
 #    Then I check direct flights onl
 #    And I click search
 

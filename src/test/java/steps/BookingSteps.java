@@ -71,6 +71,20 @@ public class BookingSteps extends BaseTest {
         flightsPage.addDestination(city);
     }
 
+    @And("I add depart and return date {string} {string}")
+    public void iAddDepartAndReturnDate(String departDate, String returnDate) throws InterruptedException {
+       FlightsPage flightsPage = new FlightsPage(driver);
+      flightsPage.selectDepartAndReturnDate(departDate,returnDate);
+    }
+
+    @And("I click search")
+    public void iClickSearch() throws InterruptedException {
+        FlightsPage flightsPage = new FlightsPage(driver);
+        flightsPage.clickSearch();
+
+    }
+
+
     ////    @Then("I choose flight type")
 ////    public void iChooseFlightType() throws InterruptedException {
 ////        FlightsPage flightsPage = new FlightsPage(driver);

@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -38,6 +39,20 @@ public class FlightsPage extends BasePage {
     @FindBy (css = ".css-bwf0ll")
     WebElement checkToSelectDestination;
 
+    @FindBy (css = ".css-hboir5")
+    WebElement selectDestination;
+
+    @FindBy(xpath = "//input[@placeholder='Depart']")
+    WebElement departBtn;
+
+    @FindBy(xpath = "//input[@placeholder='Return']")
+    WebElement returnBtn;
+
+    @FindBy(css = "[data-testid='searchbox_submit' ]")
+    WebElement clickSearchButton;
+
+
+
     public void openFlightsPage() throws InterruptedException {
         clickElement(flights);
     }
@@ -56,7 +71,20 @@ public class FlightsPage extends BasePage {
     public void addDestination(String city) throws InterruptedException {
         clickElement(clickToAddDestination);
         inputElement(clickToTypeCity,city);
-        clickElement(checkToSelectDestination);
+        //clickElement(checkToSelectDestination);
+        clickElement(selectDestination);
+    }
+
+    public void selectDepartAndReturnDate(String departDate, String returnDate) throws InterruptedException {
+        clickElement(departBtn);
+        clickElement(driver.findElement(By.xpath("//span[@data-date-cell='" + departDate + "']")));
+        clickElement(returnBtn);
+        clickElement(driver.findElement(By.xpath("//span[@data-date-cell='" + returnDate + "']")));
+    }
+
+    public void clickSearch () throws InterruptedException {
+        clickElement(clickSearchButton);
+
     }
 }
 

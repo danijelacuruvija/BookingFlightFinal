@@ -3,9 +3,11 @@ package steps;
 import excell_core.ExcelUtilities;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.testng.Reporter;
+import pages.FlightsPage;
 import tests.BaseTest;
 
 import java.io.IOException;
@@ -14,7 +16,6 @@ import java.util.Map;
 public class BookingSteps extends BaseTest {
 
     String BROWSER = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("BROWSER");
-    String BROWSER_VERSION = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("BROWSER_VERSION");
     String WAIT = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("WAIT");
     String ENV = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("ENV");
 
@@ -23,7 +24,7 @@ public class BookingSteps extends BaseTest {
 
     @Before
     public void setUp() throws Exception {
-        setUPTest(BROWSER,BROWSER_VERSION,Integer.parseInt(WAIT));
+        setUPTest(BROWSER, Integer.parseInt(WAIT));
     }
 
     @After
@@ -31,6 +32,7 @@ public class BookingSteps extends BaseTest {
         reportScreenshot("end", "screenshot on end or fail");
         quit();
     }
+
     @Given("I load test data from {string} {string} {string}")
     public void iLoadTestDataFrom(String fileName, String sheetName, String rowNum) throws IOException {
         ExcelUtilities excelUtilities = new ExcelUtilities();
@@ -44,6 +46,36 @@ public class BookingSteps extends BaseTest {
     }
 
     @Then("I navigate to flights page")
-    public void iNavigateToFlightsPage() {
+    public void iNavigateToFlightsPage() throws InterruptedException {
+        FlightsPage flightsPage = new FlightsPage(driver); //ovo kreiram iznova da bih mogla da koristim metode iz Flights page-a
+        flightsPage.openFlightsPage();
     }
-}
+
+    @And("I select flight class {string}")
+    public void iSelectFlightClass(String classType) {
+        FlightsPage flightsPage = new FlightsPage(driver);
+        flightsPage.selectFlightClass(classType);
+    }
+
+
+    @And("I select number of passengers")
+    public void iSelectNumberOfPassengers() throws InterruptedException {
+        FlightsPage flightsPage = new FlightsPage(driver);
+        flightsPage.addAdults();
+
+    }
+
+    ////    @Then("I choose flight type")
+////    public void iChooseFlightType() throws InterruptedException {
+////        FlightsPage flightsPage = new FlightsPage(driver);
+////        flightsPage.selectFlightType();
+//    }
+
+
+
+    }
+
+
+
+
+

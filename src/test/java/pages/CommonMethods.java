@@ -33,7 +33,11 @@ public class CommonMethods {
             element.click();
         }
     }
-
+    public void inputElement (WebElement element, String value)  {
+        element.clear();
+        element.click();
+        element.sendKeys(value);
+    }
     public void typeText(WebElement element, String text) throws InterruptedException {
         WebDriverWait wdWait = new WebDriverWait(driver, waitTime);
         wdWait.until(ExpectedConditions.visibilityOf(element));
@@ -65,9 +69,9 @@ public class CommonMethods {
     }
 
     public void selectByValue(WebElement element, String value){
-        WebDriverWait wdWait = new WebDriverWait(driver, waitTime);
-        wdWait.until(ExpectedConditions.visibilityOf(element));
-        wdWait.until(ExpectedConditions.elementToBeClickable(element));
+//       WebDriverWait wdWait = new WebDriverWait(driver, waitTime);
+//       wdWait.until(ExpectedConditions.visibilityOf(element));
+//       wdWait.until(ExpectedConditions.elementToBeClickable(element));  Zasto ne radi kada su ukljuceni ovi waitovi?
 
         try {
             Select select = new Select(element);

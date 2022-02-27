@@ -20,9 +20,9 @@ public class BaseTest {
     public WebDriver driver;
     DriverManager driverManager;
 
-    public void setUPTest(String browser, String version, int waitTime) throws Exception {
+    public void setUPTest(String browser,  int waitTime) throws Exception {
         driverManager = DriverManagerFactory.getDriverManager(browser);
-        driver = driverManager.getWebDriver(version);
+        driver = driverManager.getWebDriver();
         driver.manage().timeouts().implicitlyWait(waitTime, TimeUnit.SECONDS);
     }
 

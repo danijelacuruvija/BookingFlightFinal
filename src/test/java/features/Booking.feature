@@ -1,14 +1,14 @@
 Feature: Booking
 
 #  Scenario Outline: Book a Flight row: "<row>"
-Scenario: Book a flight
-#    Given I load test data from "Booking" "BookingSheet" "<row>"
+  Scenario: Book a flight
     Given I navigate to Booking
     Then I navigate to flights page
-#    And I select flight class
-#    And I select number of adults
-#    And I add destinartion
-#    Then I add departue and yreturn date
+   #Then I choose flight type "1"
+    And I select flight class "PREMIUM_ECONOMY"
+    And I select number of passengers
+#    And I add destination
+#    Then I add departue and return date
 #    Then I check direct flights onl
 #    And I click search
 

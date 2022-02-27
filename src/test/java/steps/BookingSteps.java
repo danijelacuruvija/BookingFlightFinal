@@ -65,6 +65,12 @@ public class BookingSteps extends BaseTest {
 
     }
 
+    @And("I add destination {string}")
+    public void iAddDestination(String city) throws InterruptedException {
+        FlightsPage flightsPage = new FlightsPage(driver);
+        flightsPage.addDestination(city);
+    }
+
     ////    @Then("I choose flight type")
 ////    public void iChooseFlightType() throws InterruptedException {
 ////        FlightsPage flightsPage = new FlightsPage(driver);

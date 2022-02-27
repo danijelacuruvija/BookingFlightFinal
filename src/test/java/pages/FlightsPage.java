@@ -29,6 +29,15 @@ public class FlightsPage extends BasePage {
     @FindBy(css = ".css-1bal7l4 .css-ya5gr9")
     WebElement finishedPassengers;
 
+    @FindBy(css = "[data-testid='searchbox_destination']")
+    WebElement clickToAddDestination;
+
+    @FindBy(css = "[data-testid='searchbox_destination_input']")
+    WebElement clickToTypeCity;
+
+    @FindBy (css = ".css-bwf0ll")
+    WebElement checkToSelectDestination;
+
     public void openFlightsPage() throws InterruptedException {
         clickElement(flights);
     }
@@ -43,4 +52,11 @@ public class FlightsPage extends BasePage {
         clickElement(finishedPassengers);
 
     }
+
+    public void addDestination(String city) throws InterruptedException {
+        clickElement(clickToAddDestination);
+        inputElement(clickToTypeCity,city);
+        clickElement(checkToSelectDestination);
+    }
 }
+

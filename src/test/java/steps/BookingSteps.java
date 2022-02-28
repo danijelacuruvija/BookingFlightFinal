@@ -6,11 +6,14 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
 import pages.FlightsPage;
 import tests.BaseTest;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 public class BookingSteps extends BaseTest {
@@ -82,6 +85,12 @@ public class BookingSteps extends BaseTest {
         FlightsPage flightsPage = new FlightsPage(driver);
         flightsPage.clickSearch();
 
+    }
+
+    @Then("I choose flight time {string}")
+    public void iChooseFlightTime(String time) throws InterruptedException {
+        FlightsPage flightsPage = new FlightsPage(driver);
+        flightsPage.chooseFlightTime(time);
     }
 
 

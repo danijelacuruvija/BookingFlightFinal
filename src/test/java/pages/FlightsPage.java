@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class FlightsPage extends BasePage {
     WebDriver driver;
 
@@ -36,10 +38,10 @@ public class FlightsPage extends BasePage {
     @FindBy(css = "[data-testid='searchbox_destination_input']")
     WebElement clickToTypeCity;
 
-    @FindBy (css = ".css-bwf0ll")
+    @FindBy(css = ".css-bwf0ll")
     WebElement checkToSelectDestination;
 
-    @FindBy (css = ".css-hboir5")
+    @FindBy(css = ".css-hboir5")
     WebElement selectDestination;
 
     @FindBy(xpath = "//input[@placeholder='Depart']")
@@ -52,13 +54,12 @@ public class FlightsPage extends BasePage {
     WebElement clickSearchButton;
 
 
-
     public void openFlightsPage() throws InterruptedException {
         clickElement(flights);
     }
 
-    public void selectFlightClass(String classType){
-        selectByValue(flightClass,classType);
+    public void selectFlightClass(String classType) {
+        selectByValue(flightClass, classType);
     }
 
     public void addAdults() throws InterruptedException {
@@ -70,7 +71,7 @@ public class FlightsPage extends BasePage {
 
     public void addDestination(String city) throws InterruptedException {
         clickElement(clickToAddDestination);
-        inputElement(clickToTypeCity,city);
+        inputElement(clickToTypeCity, city);
         //clickElement(checkToSelectDestination);
         clickElement(selectDestination);
     }
@@ -82,9 +83,17 @@ public class FlightsPage extends BasePage {
         clickElement(driver.findElement(By.xpath("//span[@data-date-cell='" + returnDate + "']")));
     }
 
-    public void clickSearch () throws InterruptedException {
-        clickElement(clickSearchButton);
 
+    public void clickSearch() throws InterruptedException {
+        clickElement(clickSearchButton);
+        Thread.sleep(3000);
     }
+
+    public void chooseFlightTime(String time) throws InterruptedException {
+        List<WebElement> flightTime = driver.findElements(By.xpath("//*[contains(text(),'" + time + "')]"));
+        clickElement(flightTime.get(0));
+        Thread.sleep(1000);
+    }
+
 }
 

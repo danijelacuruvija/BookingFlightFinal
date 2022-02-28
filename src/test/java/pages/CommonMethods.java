@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Random;
+
 public class CommonMethods {
     WebDriver driver;
     int waitTime = 30;
@@ -98,6 +100,44 @@ public class CommonMethods {
 
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
+    }
+
+    public String randomName(int lenght) {
+
+        String[] strings = {"q", "w", "r", "y", "g", "a", "c", "e", "v", "f", "c"};
+        String result = "";
+        for (int i = 0; i <= lenght; i++) {
+            Random random = new Random();
+            int index = random.nextInt(strings.length);
+            result = result + strings[index];
+        }
+        return result;
+    }
+
+    public String randomEmail(int lenght) {
+        String[] strings = {"a", "b", "c", "d", "e", "f"};
+        String result = "";
+
+        for (int i = 0; i <= strings.length; i++) {
+            Random random = new Random();
+            int index = random.nextInt(strings.length);
+            result = result + strings[index];
+        }
+        return result + "@gmail.com";
+
+    }
+
+    public String randomPhoneNumber(int lenght) {
+        String[] strings = {"1", "2", "3", "4", "5", "6", "7"};
+        String resultNum = "";
+
+        for (int i = 0; i <= strings.length; i++) {
+            Random random = new Random();
+            int index = random.nextInt(strings.length);
+            resultNum = resultNum + strings[index];
+        }
+        return "69" + resultNum;
+
     }
     //Selenium wrapper methods END
 }

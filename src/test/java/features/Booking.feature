@@ -9,11 +9,11 @@ Feature: Booking
     And I select flight class "PREMIUM_ECONOMY"
     And I select number of passengers
     And I add destination "Budapest"
-    And I add depart and return date "2022-02-28" "2022-03-05"
+    And I add depart and return date "2022-03-20" "2022-03-28"
 #    Then I check direct flights only
     And I click search
-    Then I choose flight time "12:00 AM - 17:59 PM"
-#    And I select flight
+    Then I choose flight time "12:00 PM - 5:59 PM"
+    And I select flight
 #    Then I verify that flight is to selected destination;
 #    Then I choose selected flight;
 

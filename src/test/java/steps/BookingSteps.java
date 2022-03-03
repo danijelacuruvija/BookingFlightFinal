@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
 import pages.FlightsPage;
+import pages.TicketDetails;
 import tests.BaseTest;
 
 import java.io.IOException;
@@ -96,8 +97,23 @@ public class BookingSteps extends BaseTest {
     @And("I select flight")
     public void iSelectFlight() throws InterruptedException {
         FlightsPage flightsPage = new FlightsPage(driver);
-        flightsPage.selectflight();
+        flightsPage.selectFlight();
     }
+
+    @Then("I choose selected flight")
+    public void iChooseSelectedFlight() throws InterruptedException {
+        FlightsPage flightsPage = new FlightsPage(driver);
+        flightsPage.chooseSelectedFlight();
+    }
+
+
+    @Then("I select ticket details")
+    public void iSelectTicketDetails() throws InterruptedException {
+        TicketDetails ticketDetails = new TicketDetails(driver);
+        ticketDetails.checkTicketType();
+
+    }
+
 
 
     ////    @Then("I choose flight type")

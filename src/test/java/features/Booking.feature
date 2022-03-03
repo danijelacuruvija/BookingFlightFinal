@@ -14,7 +14,7 @@ Feature: Booking
     And I click search
     Then I choose flight time "12:00 PM - 5:59 PM"
     And I select flight
-#    Then I verify that flight is to selected destination;
+    #Then I verify that flight is to selected destination "Budapest"
     Then I choose selected flight
   Then I select ticket details
 

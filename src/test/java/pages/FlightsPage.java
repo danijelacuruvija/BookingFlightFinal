@@ -5,8 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import java.util.List;
+
+import static org.testng.Assert.assertTrue;
 
 public class FlightsPage extends BasePage {
     WebDriver driver;
@@ -105,10 +108,16 @@ public class FlightsPage extends BasePage {
         clickElement(seeFlightButton.get(0));
     }
 
+//    public void verifyDestination(String checkCity){
+//        String titleCity = driver.findElement( By.xpath("//h2[@id='__bui-9-title']")).getText();
+//        assertTrue(titleCity.contains(checkCity));
+//    }
+
     public void chooseSelectedFlight() throws InterruptedException {
         clickElement(selectChosenFlight);
 
     }
+
 
 }
 

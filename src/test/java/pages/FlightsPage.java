@@ -53,6 +53,9 @@ public class FlightsPage extends BasePage {
     @FindBy(css = "[data-testid='searchbox_submit' ]")
     WebElement clickSearchButton;
 
+    @FindBy (css = "[data-testid='flight_card_bound_select_flight']")
+    List <WebElement> seeFlightButton;
+
 
     public void openFlightsPage() throws InterruptedException {
         clickElement(flights);
@@ -79,7 +82,8 @@ public class FlightsPage extends BasePage {
     public void selectDepartAndReturnDate(String departDate, String returnDate) throws InterruptedException {
         clickElement(departBtn);
         clickElement(driver.findElement(By.xpath("//span[@data-date-cell='" + departDate + "']")));
-        clickElement(returnBtn);
+        //clickElement(returnBtn);
+        //Thread.sleep(1000);
         clickElement(driver.findElement(By.xpath("//span[@data-date-cell='" + returnDate + "']")));
     }
 
@@ -90,9 +94,12 @@ public class FlightsPage extends BasePage {
     }
 
     public void chooseFlightTime(String time) throws InterruptedException {
-        List<WebElement> flightTime = driver.findElements(By.xpath("//*[contains(text(),'" + time + "')]"));
-        clickElement(flightTime.get(0));
+        clickElement(driver.findElement(By.xpath("//div[contains(text(), 'Departs')]//..//..//div[contains(text(),'"+time+"')]//..//..//span")));
         Thread.sleep(1000);
+    }
+
+    public void selectflight() throws InterruptedException {
+        clickElement(seeFlightButton.get(0));
     }
 
 }

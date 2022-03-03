@@ -93,6 +93,12 @@ public class BookingSteps extends BaseTest {
         flightsPage.chooseFlightTime(time);
     }
 
+    @And("I select flight")
+    public void iSelectFlight() throws InterruptedException {
+        FlightsPage flightsPage = new FlightsPage(driver);
+        flightsPage.selectflight();
+    }
+
 
     ////    @Then("I choose flight type")
 ////    public void iChooseFlightType() throws InterruptedException {

@@ -56,6 +56,9 @@ public class FlightsPage extends BasePage {
     @FindBy (css = "[data-testid='flight_card_bound_select_flight']")
     List <WebElement> seeFlightButton;
 
+    @FindBy (css = "[data-testid='flight_details_inner_modal_select_button']")
+    WebElement  selectChosenFlight;
+
 
     public void openFlightsPage() throws InterruptedException {
         clickElement(flights);
@@ -98,8 +101,13 @@ public class FlightsPage extends BasePage {
         Thread.sleep(1000);
     }
 
-    public void selectflight() throws InterruptedException {
+    public void selectFlight() throws InterruptedException {
         clickElement(seeFlightButton.get(0));
+    }
+
+    public void chooseSelectedFlight() throws InterruptedException {
+        clickElement(selectChosenFlight);
+
     }
 
 }

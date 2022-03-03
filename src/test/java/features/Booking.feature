@@ -15,7 +15,8 @@ Feature: Booking
     Then I choose flight time "12:00 PM - 5:59 PM"
     And I select flight
 #    Then I verify that flight is to selected destination;
-#    Then I choose selected flight;
+    Then I choose selected flight
+  Then I select ticket details
 
 #    Examples:
 #      | row |

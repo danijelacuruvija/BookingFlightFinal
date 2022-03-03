@@ -100,6 +100,13 @@ public class BookingSteps extends BaseTest {
         flightsPage.selectFlight();
     }
 
+//    @Then("I verify that flight is to selected destination {string}")
+//    public void iVerifyThatFlightIsToSelectedDestination(String checkCity) {
+//        FlightsPage flightsPage = new FlightsPage(driver);
+//        flightsPage.verifyDestination(checkCity);
+   // }
+
+
     @Then("I choose selected flight")
     public void iChooseSelectedFlight() throws InterruptedException {
         FlightsPage flightsPage = new FlightsPage(driver);
@@ -113,6 +120,7 @@ public class BookingSteps extends BaseTest {
         ticketDetails.checkTicketType();
 
     }
+
 
 
 

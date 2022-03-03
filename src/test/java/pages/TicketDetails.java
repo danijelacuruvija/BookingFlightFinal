@@ -22,11 +22,11 @@ public class TicketDetails extends BasePage {
     @FindBy(css="span.InputRadio-module__field___16hZ8")
     List<WebElement> ticketTypes;
     @FindBy (css="div[data-testid='checkout_ticket_type_inner_next']")
-    WebElement nextBtn;
+    WebElement nextButton;
 
     public void checkTicketType() throws InterruptedException{
         clickElement(ticketTypes.get(0));
-        clickElement(nextBtn);
+        clickElement(nextButton);
     }
 
 

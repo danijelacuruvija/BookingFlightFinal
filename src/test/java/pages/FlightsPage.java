@@ -108,10 +108,10 @@ public class FlightsPage extends BasePage {
         clickElement(seeFlightButton.get(0));
     }
 
-    public void verifyDestination(String checkCity){
-        String titleCity = driver.findElement(By.cssSelector("#__bui-41-title")).getText();
-        assertTrue(titleCity.contains(checkCity));
-    }
+//    public void verifyDestination(String checkCity){
+//        String titleCity = driver.findElement(By.cssSelector("#__bui-41-title")).getText();
+//        assertTrue(titleCity.contains(checkCity));
+//    }
 
     public void chooseSelectedFlight() throws InterruptedException {
         clickElement(selectChosenFlight);

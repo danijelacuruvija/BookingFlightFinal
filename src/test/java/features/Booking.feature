@@ -17,10 +17,12 @@ Feature: Booking
     Then I verify that flight is to selected destination "Budapest"
     Then I choose selected flight
     Then I select ticket details
-  Then I enter contact data "RS"
-  Then I enter passanger data "2"
-  #Then I click next button
-
+    Then I enter contact data "RS"
+    Then I enter passanger data "2"
+    #Then I click next button
+    #Then I click next for Baggage and extras
+  #Then I click to skip choosing seat
+  #Then I verify flight
 
 #    Examples:
 #      | row |

@@ -18,7 +18,7 @@ Feature: Booking
     Then I choose selected flight
     Then I select ticket details
   Then I enter contact data "RS"
-  #Then I enter passanger data
+  Then I enter passanger data "2"
   #Then I click next button
 
 

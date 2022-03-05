@@ -129,7 +129,13 @@ public class BookingSteps extends BaseTest {
         passengersDetails.enterCountyCode(countryCodeValue);
         passengersDetails.enterPhoneNumber();
     }
+
+    @Then("I enter passenger data {string}")
+    public void iEnterPassengerData(String numOfPassengers) {
+        PassengersDetails passengersDetails = new PassengersDetails(driver);
+
     }
+}
 
 
     ////    @Then("I choose flight type")

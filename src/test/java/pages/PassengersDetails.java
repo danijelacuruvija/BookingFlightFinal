@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,12 +23,12 @@ public class PassengersDetails extends BasePage {
     WebElement countryCodeEl;
     @FindBy(css = "[name='phone']")
     WebElement phoneNm;
-    @FindBy(css = "[name='day']")
-    List<WebElement> dayEl;
-    @FindBy(css = "[name='month']")
-    List<WebElement> monthEl;
-    @FindBy(css = "[name='year']")
-    List<WebElement> yearEl;
+//    @FindBy(css = "[name='day']")
+//    List<WebElement> dayEl;
+//    @FindBy(css = "[name='month']")
+//    List<WebElement> monthEl;
+//    @FindBy(css = "[name='year']")
+//    List<WebElement> yearEl;
     @FindBy(css = "div[data-testid='checkout_extras_inner_next']")
     WebElement nextBtn;
 
@@ -51,5 +52,16 @@ public class PassengersDetails extends BasePage {
         inputElement(phoneNm, phoneNumber);
     }
 
+    public void enterPassengersDetails(String numOfPassengers){
+    for (int i = 0; i <= Integer.parseInt(numOfPassengers); i++) {
+        inputElement(driver.findElement(By.cssSelector("[name='passengers." + i + ".firstName']")), firstName);
+        inputElement(driver.findElement(By.cssSelector("[name='passengers." + i + ".lastName']")), lastName);
+        WebElement genderSelect = driver.findElement(By.cssSelector("[name='passengers." + i + ".gender']"));
+        genderSelect.click();
 
-}
+    }
+
+
+
+
+}}

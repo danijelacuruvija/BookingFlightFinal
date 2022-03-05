@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
 import pages.FlightsPage;
+import pages.PassengersDetails;
 import pages.TicketDetails;
 import tests.BaseTest;
 
@@ -100,11 +101,11 @@ public class BookingSteps extends BaseTest {
         flightsPage.selectFlight();
     }
 
-//    @Then("I verify that flight is to selected destination {string}")
-//    public void iVerifyThatFlightIsToSelectedDestination(String checkCity) {
-//        FlightsPage flightsPage = new FlightsPage(driver);
-//        flightsPage.verifyDestination(checkCity);
-   // }
+    @Then("I verify that flight is to selected destination {string}")
+    public void iVerifyThatFlightIsToSelectedDestination(String checkCity) {
+        FlightsPage flightsPage = new FlightsPage(driver);
+        flightsPage.verifyDestination(checkCity);
+    }
 
 
     @Then("I choose selected flight")
@@ -121,7 +122,14 @@ public class BookingSteps extends BaseTest {
 
     }
 
-
+    @Then("I enter contact data {string}")
+    public void iEnterContactData(String countryCodeValue) {
+        PassengersDetails passengersDetails = new PassengersDetails(driver);
+        passengersDetails.enterEmail();
+        passengersDetails.enterCountyCode(countryCodeValue);
+        passengersDetails.enterPhoneNumber();
+    }
+    }
 
 
     ////    @Then("I choose flight type")
@@ -132,7 +140,7 @@ public class BookingSteps extends BaseTest {
 
 
 
-    }
+
 
 
 

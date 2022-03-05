@@ -9,14 +9,18 @@ Feature: Booking
     And I select flight class "PREMIUM_ECONOMY"
     And I select number of passengers
     And I add destination "Budapest"
-    And I add depart and return date "2022-03-20" "2022-03-28"
+    And I add depart and return date "2022-03-27" "2022-03-30"
 #    Then I check direct flights only
     And I click search
     Then I choose flight time "12:00 PM - 5:59 PM"
     And I select flight
-    #Then I verify that flight is to selected destination "Budapest"
+    Then I verify that flight is to selected destination "Budapest"
     Then I choose selected flight
-  Then I select ticket details
+    Then I select ticket details
+  Then I enter contact data "RS"
+  #Then I enter passanger data
+  #Then I click next button
+
 
 #    Examples:
 #      | row |

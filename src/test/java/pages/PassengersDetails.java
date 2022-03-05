@@ -17,13 +17,14 @@ public class PassengersDetails extends BasePage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+
     @FindBy(css = "[name='email']")
     WebElement emailInput;
     @FindBy(css = "select.css-1k0jlfl")
     WebElement countryCodeEl;
     @FindBy(css = "[name='phone']")
     WebElement phoneNm;
-//    @FindBy(css = "[name='day']")
+    //    @FindBy(css = "[name='day']")
 //    List<WebElement> dayEl;
 //    @FindBy(css = "[name='month']")
 //    List<WebElement> monthEl;
@@ -52,16 +53,19 @@ public class PassengersDetails extends BasePage {
         inputElement(phoneNm, phoneNumber);
     }
 
-    public void enterPassengersDetails(String numOfPassengers){
-    for (int i = 0; i <= Integer.parseInt(numOfPassengers); i++) {
-        inputElement(driver.findElement(By.cssSelector("[name='passengers." + i + ".firstName']")), firstName);
-        inputElement(driver.findElement(By.cssSelector("[name='passengers." + i + ".lastName']")), lastName);
-        WebElement genderSelect = driver.findElement(By.cssSelector("[name='passengers." + i + ".gender']"));
-        genderSelect.click();
+    public void enterPassengersDetails(String numOfPassengers) throws InterruptedException {
+        for (int i = 0; i < Integer.parseInt(numOfPassengers); i++) {
+            inputElement(driver.findElement(By.cssSelector("[name='passengers." + i + ".firstName']")), firstName);
+            inputElement(driver.findElement(By.cssSelector("[name='passengers." + i + ".lastName']")), lastName);
+            WebElement genderSelect = driver.findElement(By.cssSelector("[name='passengers." + i + ".gender']"));
+            genderSelect.click();
+            selectByValue(genderSelect, "M");
 
+        }
     }
 
+        public void clickNextButtonToBaggage() throws InterruptedException {
+            clickElement(nextBtn);
+        }
+    }
 
-
-
-}}

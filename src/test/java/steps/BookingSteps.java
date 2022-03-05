@@ -12,6 +12,7 @@ import org.testng.Reporter;
 import pages.FlightsPage;
 import pages.PassengersDetails;
 import pages.TicketDetails;
+import pages.VerifyFlight;
 import tests.BaseTest;
 
 import java.io.IOException;
@@ -101,11 +102,11 @@ public class BookingSteps extends BaseTest {
         flightsPage.selectFlight();
     }
 
-    @Then("I verify that flight is to selected destination {string}")
-    public void iVerifyThatFlightIsToSelectedDestination(String checkCity) {
-        FlightsPage flightsPage = new FlightsPage(driver);
-        flightsPage.verifyDestination(checkCity);
-    }
+//    @Then("I verify that flight is to selected destination {string}")
+//    public void iVerifyThatFlightIsToSelectedDestination(String checkCity) {
+//        FlightsPage flightsPage = new FlightsPage(driver);
+//        flightsPage.verifyDestination(checkCity);
+//    }
 
 
     @Then("I choose selected flight")
@@ -130,10 +131,29 @@ public class BookingSteps extends BaseTest {
         passengersDetails.enterPhoneNumber();
     }
 
-    @Then("I enter passenger data {string}")
-    public void iEnterPassengerData(String numOfPassengers) {
-        PassengersDetails passengersDetails = new PassengersDetails(driver);
 
+    @Then("I enter passenger data {string}")
+    public void iEnterPassengerData(String numOfPassengers) throws InterruptedException {
+            PassengersDetails passengersDetails = new PassengersDetails(driver);
+            passengersDetails.enterPassengersDetails(numOfPassengers);
+
+        }
+
+    @Then("I click next button")
+    public void iClickNextButton() throws InterruptedException {
+        PassengersDetails passengersDetails = new PassengersDetails(driver);
+        passengersDetails.clickNextButtonToBaggage();
+    }
+
+    @Then("I click next for Baggage and extras")
+    public void iClickNextForBaggageAndExtras() throws InterruptedException {
+        VerifyFlight verifyFlight = new VerifyFlight(driver);
+        verifyFlight.selectBaggageAndExtras();
+    }
+
+    @Then("I click to skip choosing seat")
+    public void iClickToSkipChoosingSeat() {
+        VerifyFlight verifyFlight = new VerifyFlight(driver);
     }
 }
 

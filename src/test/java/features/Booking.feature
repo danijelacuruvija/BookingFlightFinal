@@ -21,8 +21,9 @@ Feature: Booking
     Then I enter passenger data "2"
     Then I click next button
     Then I click next for Baggage and extras
-  Then I click to skip choosing seat
-  #Then I verify flight
+    Then I click to skip choosing seat
+    Then I verify that paying is possible with "MasterCard"
+
 
 #    Examples:
 #      | row |

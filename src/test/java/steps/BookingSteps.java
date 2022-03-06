@@ -152,8 +152,16 @@ public class BookingSteps extends BaseTest {
     }
 
     @Then("I click to skip choosing seat")
-    public void iClickToSkipChoosingSeat() {
+    public void iClickToSkipChoosingSeat() throws InterruptedException {
         VerifyFlight verifyFlight = new VerifyFlight(driver);
+        verifyFlight.skipSeatSelection();
+    }
+
+    @Then("I verify that paying is possible with {string}")
+    public void iVerifyThatPayIsPossibleWith(String cardName) throws InterruptedException {
+        VerifyFlight verifyFlight = new VerifyFlight(driver);
+        verifyFlight.checkPayingCard(cardName);
+
     }
 }
 
